@@ -6,6 +6,7 @@ import {
     Navigation,
     Home,
     Players,
+    Staff,
   } from "./components";
 
   ReactDOM.render(
@@ -14,6 +15,7 @@ import {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Players" element={<Players />} />
+        <Route path="/Staff" element={<Staff />} />
       </Routes>
     </Router>,
   
