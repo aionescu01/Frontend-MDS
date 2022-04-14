@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { Button, Checkbox, Form } from 'semantic-ui-react'
 import axios from 'axios';
+import './CP.css';
 
 export default function Create_Players() {
     const [name, setname] = useState('');
@@ -29,7 +30,8 @@ export default function Create_Players() {
     }
     function myFunction(){
         postData();
-        fun();
+
+        window.location.href = 'http://localhost:3000/Players'
     }
 
 
@@ -38,32 +40,32 @@ export default function Create_Players() {
     
     <Form className="create-form">
         <Form.Field>
-            <label>name</label>
-            <input placeholder='Name' onChange={(e) => setname(e.target.value)} />
+            <label className='scris'>name</label>
+            <input className='raspuns' placeholder='Name' onChange={(e) => setname(e.target.value)} />
         </Form.Field>
         <Form.Field>
-            <label>nationality</label>
-            <input placeholder='Nationality' onChange={(e) => setnationality(e.target.value)} />
+            <label className='scris'>nationality</label>
+            <input className='raspuns' placeholder='Nationality' onChange={(e) => setnationality(e.target.value)} />
         </Form.Field>
         <Form.Field>
-            <label>birth_Date</label>
-            <input placeholder='2021-12-12' onChange={(e) => setbirth_Date(e.target.value)} />
+            <label className='scris'>birth_Date</label>
+            <input className='raspuns' placeholder='2021-12-12' onChange={(e) => setbirth_Date(e.target.value)} />
         </Form.Field>
         <Form.Field>
-            <label>height</label>
-            <input placeholder='Height' onChange={(e) => setheight(e.target.value)}/>
+            <label className='scris'>height</label>
+            <input className='raspuns' placeholder='Height' onChange={(e) => setheight(e.target.value)}/>
         </Form.Field>
         <Form.Field>
-            <label>foot</label>
-            <input placeholder='Foot' onChange={(e) => setfoot(e.target.value)}/>
+            <label className='scris'>foot</label>
+            <input className='raspuns' placeholder='Foot' onChange={(e) => setfoot(e.target.value)}/>
         </Form.Field>
         <Form.Field>
-            <label>position</label>
-            <input placeholder='Position' onChange={(e) => setposition(e.target.value)}/>
+            <label className='scris'>position</label>
+            <input className='raspuns' placeholder='Position' onChange={(e) => setposition(e.target.value)}/>
         </Form.Field>
         <Form.Field>
-            <label>value</label>
-            <input placeholder='Value' onChange={(e) => setvalue(e.target.value)}/>
+            <label className='scris'>value</label>
+            <input className='raspuns' placeholder='Value' onChange={(e) => setvalue(e.target.value)}/>
         </Form.Field>        
         <Button onClick={myFunction} type = 'submit'>Submit</Button>
     </Form>

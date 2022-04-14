@@ -8,6 +8,7 @@ import {
     Players,
     Staff,
   } from "./components";
+import Update_Players from './components/crud_players/update_players';
 
   ReactDOM.render(
     <Router>
@@ -16,6 +17,7 @@ import {
         <Route path="/" element={<Home />} />
         <Route path="/Players" element={<Players />} />
         <Route path="/Staff" element={<Staff />} />
+        <Route path="/update_players" element={<Update_Players />} />
       </Routes>
     </Router>,
   

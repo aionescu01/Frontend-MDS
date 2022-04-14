@@ -5,9 +5,10 @@
 
 .create-form label{
     
-    color: whitesmoke !important;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 12px !important;
+    /* color: whitesmoke !important; */
+    /* font-family: 'Montserrat', sans-serif; */
+    font-size: 16px !important;
+    font-family: Helvetica;
   }
 
   .main{
@@ -16,11 +17,21 @@
     justify-content: center;
     align-items: center;
 
-    background-color: #212121;
+    background-color: #393E46;
     color: whitesmoke;
     flex-direction: column;
   }
-  .pls{
-    border: 1px solid white;
-    background-color: aliceblue;
+  .main-header{
+    padding-top: 50px;
   }
+  .pls{
+    padding-top: 50px;
+    
+  }
+.scris{
+  padding-right: 10px;
+  
+}
+.raspuns{
+  padding-left: 5px;
+}
