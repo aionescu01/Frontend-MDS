@@ -5,6 +5,42 @@ import { Link } from 'react-router-dom';
 import './RP.css';
 
 
+const useSortableData = (items, config = null) => {
+    const [sortConfig, setSortConfig] = React.useState(config);
+  
+    const sortedItems = React.useMemo(() => {
+      let sortableItems = [...items];
+      if (sortConfig !== null) {
+        sortableItems.sort((a, b) => {
+          if (a[sortConfig.key] < b[sortConfig.key]) {
+            return sortConfig.direction === 'ascending' ? -1 : 1;
+          }
+          if (a[sortConfig.key] > b[sortConfig.key]) {
+            return sortConfig.direction === 'ascending' ? 1 : -1;
+          }
+          return 0;
+        });
+      }
+      return sortableItems;
+    }, [items, sortConfig]);
+  
+    const requestSort = (key) => {
+      let direction = 'ascending';
+      if (
+        sortConfig &&
+        sortConfig.key === key &&
+        sortConfig.direction === 'ascending'
+      ) {
+        direction = 'descending';
+      }
+      setSortConfig({ key, direction });
+    };
+    //console.log(sortedItems)
+    return { items: sortedItems, requestSort, sortConfig };
+  };
+
+
+
 export default function Read_Players() {
 
     const onDelete = (id) => {
@@ -33,6 +69,13 @@ useEffect(() => {
             setAPIData(response.data);
         })
 }, [])
+const { items, requestSort, sortConfig } = useSortableData(APIData);
+    const getClassNamesFor = (name) => {
+        if (!sortConfig) {
+            return;
+        }
+        return sortConfig.key === name ? sortConfig.direction : undefined;
+        };
 
     const setData = (data) => {
     let { id, name, nationality, birth_Date,height,foot,position,value } = data;
@@ -51,20 +94,49 @@ useEffect(() => {
             <Table singleLine className='tabel'>
                 <Table.Header>
                     <Table.Row>
-                        <Table.HeaderCell>Name</Table.HeaderCell>
-                        <Table.HeaderCell>Nationality</Table.HeaderCell>
-                        <Table.HeaderCell>birth_Date</Table.HeaderCell>
-                        <Table.HeaderCell>Height</Table.HeaderCell>
-                        <Table.HeaderCell>Foot</Table.HeaderCell>
-                        <Table.HeaderCell>Position</Table.HeaderCell>
-                        <Table.HeaderCell>Value</Table.HeaderCell>
+                        <Table.HeaderCell className='titlu'><button
+              type="button"
+              onClick={() => requestSort('name')}
+              className={getClassNamesFor('name')}
+            >Name</button></Table.HeaderCell>
+                        <Table.HeaderCell className='titlu'><button
+              type="button"
+              onClick={() => requestSort('nationality')}
+              className={getClassNamesFor('nationality')}
+            >Nationality</button></Table.HeaderCell>
+                        <Table.HeaderCell className='titlu'><button
+              type="button"
+              onClick={() => requestSort('birth_Date')}
+              className={getClassNamesFor('birth_Date')}
+            >Birth Date</button></Table.HeaderCell>
+                        <Table.HeaderCell className='titlu'><button
+              type="button"
+              onClick={() => requestSort('height')}
+              className={getClassNamesFor('height')}
+            >Height</button></Table.HeaderCell>
+                        <Table.HeaderCell  className='titlu'><button
+              type="button"
+              onClick={() => requestSort('foot')}
+              className={getClassNamesFor('foot')}
+            >Foot</button></Table.HeaderCell>
+                        <Table.HeaderCell className='titlu'><button
+              type="button"
+              onClick={() => requestSort('position')}
+              className={getClassNamesFor('position')}
+            >Position</button></Table.HeaderCell>
+                        <Table.HeaderCell className='titlu'><button
+              type="button"
+              onClick={() => requestSort('value')}
+              className={getClassNamesFor('value')}
+            >Value</button></Table.HeaderCell>
                         
 
                     </Table.Row>
                 </Table.Header>
 
                 <Table.Body>
-                {APIData.map((data) => {
+                {/* {APIData.map((data) => { */}
+                {items.map((data) => {
      return (
        <Table.Row>
           <Table.Cell key={data.name}>{data.name}</Table.Cell>
