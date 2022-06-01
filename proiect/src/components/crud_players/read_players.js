@@ -83,7 +83,7 @@ const { items, requestSort, sortConfig } = useSortableData(APIData);
     localStorage.setItem('Name', name);
     localStorage.setItem('Nationality', nationality);
     localStorage.setItem('Birth Date', birth_Date)
-    localStorage.setItem('Height', height);
+    localStorage.setItem('Height', height.toString().substring(0, (height.toString()).length-2));
     localStorage.setItem('Foot', foot);
     localStorage.setItem('Position', position);
     localStorage.setItem('Value', value)
