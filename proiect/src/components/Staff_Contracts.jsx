@@ -1,20 +1,12 @@
 import React from "react";
 import Create_Staff_Contracts from "./crud_staff_contracts/create_staff_contracts";
-<<<<<<< Updated upstream
-import Read_Staff_contracts from "./crud_staff_contracts/read_staff_contracts";
-=======
 import Read_Staff_Contracts from "./crud_staff_contracts/read_staff_contracts";
->>>>>>> Stashed changes
 import Update_Staff_Contracts from "./crud_staff_contracts/update_staff_contracts";
-
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import './Players.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-<<<<<<< Updated upstream
-function Staff() {
-=======
+
 function Staff_Contracts() {
->>>>>>> Stashed changes
   return (
     <div className="main">
 

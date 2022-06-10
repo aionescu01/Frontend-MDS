@@ -145,8 +145,7 @@ const useSortableData = (items, config = null) => {
               </Table.Body>
           </Table>
       )
-<<<<<<< Updated upstream
   }
-=======
-  }
->>>>>>> Stashed changes
+
+
+

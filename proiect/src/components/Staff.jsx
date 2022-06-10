@@ -1,10 +1,5 @@
 import React from "react";
 import Create_Staff from './crud_staff/create_staff';
-<<<<<<< Updated upstream
-import Add_Staff from './crud_staff/add_staff';
-=======
-
->>>>>>> Stashed changes
 import Read_Staff from './crud_staff/read_staff';
 import Update_Staff from './crud_staff/update_staff';
 import './Players.css';
@@ -13,16 +8,8 @@ function Staff() {
   return (
     <div className="main">
 
-<<<<<<< Updated upstream
-      
-    <div className="pls">
-         <Add_Staff/> 
-      
-    </div>
-=======
       
 
->>>>>>> Stashed changes
       <h2 className="main-header">Staff List</h2>
       <div className="pls">
          <Read_Staff/> 

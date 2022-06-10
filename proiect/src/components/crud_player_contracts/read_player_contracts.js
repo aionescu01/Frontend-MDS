@@ -1,11 +1,7 @@
  import React , { useEffect, useState } from 'react';
  import { Table } from 'semantic-ui-react';
  import axios from 'axios';
-<<<<<<< Updated upstream
-
-=======
  import './RP.css';
->>>>>>> Stashed changes
  export default function Read_Player_Contracts(){
      const [APIData, setAPIData] = useState([]);
      useEffect(() => {
@@ -35,8 +31,4 @@
              </Table>
          </div>
      )
-<<<<<<< Updated upstream
  }
-=======
- }
->>>>>>> Stashed changes

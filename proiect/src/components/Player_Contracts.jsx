@@ -4,11 +4,7 @@ import Read_Player_Contracts from "./crud_player_contracts/read_player_contracts
 import Update_Player_Contracts from "./crud_player_contracts/update_player_contracts";
 import './Players.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-<<<<<<< Updated upstream
-function Staff() {
-=======
 function Player_Contracts() {
->>>>>>> Stashed changes
   return (
     <div className="main">
 
