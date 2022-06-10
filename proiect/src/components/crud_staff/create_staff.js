@@ -1,6 +1,7 @@
 import React, {useState} from "react"
 import {Button, Checkbox, Form} from "semantic-ui-react"
 import axios from "axios";
+import './CS.css';
 
 export default function Create_Staff(){
     const [name, setname] = useState('');
@@ -25,7 +26,7 @@ export default function Create_Staff(){
     }
     function myFunction(){
         postData();
-        fun();
+        window.location.href = 'staff';
     }
 
     return(

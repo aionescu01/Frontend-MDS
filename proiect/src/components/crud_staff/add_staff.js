@@ -2,14 +2,14 @@ import React , { useEffect,useState }from 'react';
 import { Form,Button } from 'semantic-ui-react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import './RP.css';
+import './RS.css';
 
-export default function Add_players() {
+export default function Add_staff() {
 
 const postData = () => {
     const [Link, setlink] = useState('');
-    //?    
-    axios.post(`https://localhost:44307/api/Staff/Add one staff member${Link}`, {
+        
+    axios.post(`create staff ${Link}`, {
         Link
         
     })

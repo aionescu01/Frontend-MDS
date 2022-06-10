@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import './Navigation.css';
 function Navigation() {
   return (
@@ -23,6 +23,16 @@ function Navigation() {
               <li className="nav-item">
                 <NavLink className="nav-link" to="/Staff">
                   Staff
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/Player_Contracts">
+                  Players Contract
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/Staff_Contracts">
+                  Staff Contract
                 </NavLink>
               </li>
             </ul>
