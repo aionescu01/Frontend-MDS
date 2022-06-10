@@ -24,7 +24,11 @@ export default function Update_Player_Contracts() {
         let navigate = useNavigate(); 
         let path = `/Contract`; 
         navigate(path);
+<<<<<<< Updated upstream
         axios.put(`https://localhost:44307/api/Contract/put-by-id/{id}${id}`, {
+=======
+        axios.put(`https://localhost:44307/api/Contract/put-by-id/${playerId}`, {
+>>>>>>> Stashed changes
             start_date,
             end_date,
             salary,

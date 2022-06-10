@@ -8,8 +8,13 @@ export default function Add_players() {
 
 const postData = () => {
     const [Link, setlink] = useState('');
+<<<<<<< Updated upstream
     //?    
     axios.post(`https://localhost:44307/api/Staff/Add one staff member${Link}`, {
+=======
+        
+    axios.post(`https://localhost:44307/api/Player/create-players`, {
+>>>>>>> Stashed changes
         Link
         
     })

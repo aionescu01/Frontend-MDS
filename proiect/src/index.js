@@ -8,7 +8,11 @@ import {
     Players,
     Staff,
     Player_Contracts,
+<<<<<<< Updated upstream
     Staff_Contracts
+=======
+    Staff_Contract
+>>>>>>> Stashed changes
   } from "./components";
 import Update_Players from './components/crud_players/update_players';
 
@@ -19,6 +23,8 @@ import Update_Players from './components/crud_players/update_players';
         <Route path="/" element={<Home />} />
         <Route path="/Players" element={<Players />} />
         <Route path="/Staff" element={<Staff />} />
+        <Route path="/Staff_Contracts" element={<Staff_Contract />} />
+        <Route path="/Player_Contracts" element={<Player_Contracts />} />
         <Route path="/update_players" element={<Update_Players />} />
         <Route path="/Player_Contracts" element={<Player_Contracts />} />
         <Route path="/Staff_Contracts" element={<Staff_Contracts />} />
