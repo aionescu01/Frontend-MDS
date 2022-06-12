@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { Button, Checkbox, Form } from "semantic-ui-react"
 import axios from "axios";
+<<<<<<< Updated upstream
 
+=======
+//import './CPC.css';
+>>>>>>> Stashed changes
 export default function Create_Player_Contracts() {
     const [start_date, setstart_date] = useState(new Date('2021-12-16T10:43:46.737Z'));
     const [end_date, setend_date] = useState(new Date('2021-12-16T10:43:46.737Z'));
@@ -10,7 +14,7 @@ export default function Create_Player_Contracts() {
     const [playerId, setplayerId] = useState(0);
 
     const postData = () => {
-        axios.post('https://localhost:44307/api/Contract/add-one-contract', {
+        axios.post('https://localhost:44307/api/Contract/add-players', {
             start_date,
             end_date,
             salary,
@@ -29,7 +33,8 @@ export default function Create_Player_Contracts() {
     }
 
     return(
-        <Form className="create-form">
+        <Form className="create-form1">
+            <h2 className="bt2">Add a player contract</h2>
         <Form.Field>
             <label>start_date</label>
             <input placeholder='2021-12-12' onChange={(e) => setstart_date(e.target.value)} />
@@ -50,7 +55,7 @@ export default function Create_Player_Contracts() {
             <label>player id</label>
             <input placeholder='PlayerId' onChange={(e) => setplayerId(e.target.value)}/>
         </Form.Field>
-        <Button onClick={myFunction} type = 'submit'>Submit</Button>
+        <Button className='bt2' onClick={myFunction} type = 'submit'>Submit</Button>
     </Form>
     )
 }

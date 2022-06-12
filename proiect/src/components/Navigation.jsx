@@ -35,6 +35,16 @@ function Navigation() {
                   Staff Contract
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/Matches">
+                  Matches
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/Stadiums">
+                  Stadiums
+                </NavLink>
+              </li>
             </ul>
           </div>
         </div>

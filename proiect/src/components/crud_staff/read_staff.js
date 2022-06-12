@@ -81,7 +81,7 @@ const useSortableData = (items, config = null) => {
 
       return(
           <Table singleLine className='tabel'>
-              <Table.Header>
+              <Table.Header className="tt1">
                   <Table.Row>
                       <Table.HeaderCell className='titlu'>
                           <button type="button" 
@@ -131,7 +131,7 @@ const useSortableData = (items, config = null) => {
                               <Table.Cell>{data.email}</Table.Cell>
                               <Table.Cell>{data.phone_number}</Table.Cell>
 
-                              <Link to='update staff'>
+                              <Link to='/update_staff'>
                                   <Table.Cell>
                                       <Button onClick = {() => setData(data)}>Update</Button>
                                   </Table.Cell>

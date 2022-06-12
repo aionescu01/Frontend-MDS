@@ -1,26 +1,3 @@
-<<<<<<< Updated upstream
-.tabel{
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    font-family: Helvetica;
-    -webkit-font-smoothing: antialiased;
-    text-align: center;
-    font-size: 14px;
-    letter-spacing: 1px;
-    padding: 30px;
-    background-color: #EEEEEE;
-    border-radius: 6px;
-}
-button {
-    border: 0;
-    border-radius: none;
-    font-family: inherit;
-    font-weight: 700;
-    font-size: inherit;
-    padding: 0.5em;
-    margin-bottom: 1px;
-=======
 .tt1{
   font-family: Helvetica;
   background:#00ADB5;
@@ -90,7 +67,6 @@ button {
     padding: 3px ;
     /* padding: 0.5em; */
     /* margin-bottom: 1px; */
->>>>>>> Stashed changes
   }
 button.ascending::after {
     content: '⬆️';
@@ -102,9 +78,6 @@ button.descending::after {
     display: inline-block;
     margin-left: 1em;
   }
-<<<<<<< Updated upstream
-=======
   
 
   
->>>>>>> Stashed changes

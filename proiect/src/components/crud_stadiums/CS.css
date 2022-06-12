@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-.create-form{
-=======
 .create-form1{
->>>>>>> Stashed changes
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -11,12 +7,6 @@
     text-align: center;
     font-size: 14px;
     letter-spacing: 1px;
-<<<<<<< Updated upstream
-    padding: 30px;
-    background-color: #EEEEEE;
-    color: black;
-}
-=======
     padding: 20px;
     background-color: #00ADB5;
     /* background-color: #EEEEEE; */
@@ -24,4 +14,3 @@
     border-radius: 15px;
 }
 
->>>>>>> Stashed changes

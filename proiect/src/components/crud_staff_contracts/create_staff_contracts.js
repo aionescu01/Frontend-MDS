@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Checkbox, Form } from "semantic-ui-react"
 import axios from "axios";
-
+//import './CSC.css';
 
 
 export default function Create_Staff_Contracts() {
@@ -12,7 +12,7 @@ export default function Create_Staff_Contracts() {
     const [staffmemberid, setstaffmemberid] = useState(0);
 
     const postData = () => {
-        axios.post('https://localhost:44307/api/Contract/add-one-contract', {
+        axios.post('https://localhost:44307/api/Contract/add-staff', {
             start_date,
             end_date,
             salary,
@@ -31,28 +31,29 @@ export default function Create_Staff_Contracts() {
     }
 
     return(
-        <Form className="create-form">
+        <Form className="create-form1">
+            <h2 className="bt2">Add a Staff Contract</h2>
         <Form.Field>
-            <label>start_date</label>
-            <input placeholder='2021-12-12' onChange={(e) => setstart_date(e.target.value)} />
+            <label className="scris">start_date</label>
+            <input className="raspuns" placeholder='2021-12-12' onChange={(e) => setstart_date(e.target.value)} />
         </Form.Field>
         <Form.Field>
-            <label>end_date</label>
-            <input placeholder='2021-12-12' onChange={(e) => setend_date(e.target.value)} />
+            <label className='scris'>end_date</label>
+            <input className='raspuns'placeholder='2021-12-12' onChange={(e) => setend_date(e.target.value)} />
         </Form.Field>
         <Form.Field>
-            <label>salary</label>
-            <input placeholder='Salary' onChange={(e) => setsalary(e.target.value)} />
+            <label className='scris'>salary</label>
+            <input  className='raspuns'placeholder='Salary' onChange={(e) => setsalary(e.target.value)} />
         </Form.Field>
         <Form.Field>
-            <label>agent</label>
-            <input placeholder='Agent' onChange={(e) => setagent(e.target.value)}/>
+            <label className='scris'>agent</label>
+            <input className='raspuns'placeholder='Agent' onChange={(e) => setagent(e.target.value)}/>
         </Form.Field>
         <Form.Field>
-            <label>staff id</label>
-            <input placeholder='StaffMemberId' onChange={(e) => setstaffmemberid(e.target.value)}/>
+            <label className='scris'>staff id</label>
+            <input className='raspuns'placeholder='StaffMemberId' onChange={(e) => setstaffmemberid(e.target.value)}/>
         </Form.Field>
-        <Button onClick={myFunction} type = 'submit'>Submit</Button>
+        <Button className='bt2'onClick={myFunction} type = 'submit'>Submit</Button>
     </Form>
     )
 }
