@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Update_Staff() {
     useEffect(() => {
-        setid(localStorage.getItem('ID'))
+        setstaffid(localStorage.getItem('Staff ID'))
         setname(localStorage.getItem('Name'));
         setrole(localStorage.getItem('Role'));
         setbirth_date(localStorage.getItem('Birth Date'))
@@ -15,7 +15,7 @@ export default function Update_Staff() {
         
 }, []);
 
-    const [id, setid] = useState(null);
+    const [staffId, setstaffid] = useState(null);
     const [name, setname] = useState('');
     const [role, setrole] = useState('');
     const [birth_date, setbirth_date] = useState(new Date('2021-12-16T10:43:46.737Z'));
@@ -24,9 +24,9 @@ export default function Update_Staff() {
 
     const updateAPIData = () => {
         let navigate = useNavigate(); 
-        let path = `staff`; 
+        let path = `/Staff`; 
         navigate(path);
-        axios.put(`https://localhost:44307/api/StaffMember/put-by-id/${id}`, {
+        axios.put(`https://localhost:44307/api/StaffMember/put-by-id/${staffId}`, {
             name,
             role,
             birth_date,
@@ -37,7 +37,7 @@ export default function Update_Staff() {
     
 
     useEffect(() => {
-            setid(localStorage.getItem('ID'))
+            setstaffid(localStorage.getItem('Staff ID'))
             setname(localStorage.getItem('Name'));
             setrole(localStorage.getItem('Role'));
             setbirth_date(localStorage.getItem('Birth Date'))

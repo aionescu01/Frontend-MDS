@@ -2,7 +2,7 @@ import React , { useEffect,useState }from 'react';
 import { Table,Button } from 'semantic-ui-react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import './RP.css';
+import './RS.css';
 
 
 const useSortableData = (items, config = null) => {
@@ -41,22 +41,23 @@ const useSortableData = (items, config = null) => {
 
 
 
-export default function Read_Players() {
+export default function Read_Stadium() {
 
-    const onDelete = (id) => {
-        axios.delete(`https://localhost:44307/api/Player/delete-by-id/${id}`)
+    const onDelete = (stadiumId) => {
+        axios.delete(`https://localhost:44307/api/Stadium/delete-by-id/${stadiumId}`)
     }
 
     const getData = () => {
-        axios.get(`https://localhost:44307/api/Player/get-players`)
+        //metoda get stadiums
+        axios.get(`https://localhost:44307/api/Stadium/get-by-name`)
             .then((getData) => {
                  setAPIData(getData.data);
              })
     }
 
-        const functie = (id) => {
-        onDelete(id);
-        window.location.href = 'http://localhost:3000/Players';
+        const functie = (stadiumId) => {
+        onDelete(stadiumId);
+        window.location.href = 'http://localhost:3000/Stadiums';
 
     }
 
@@ -64,7 +65,8 @@ export default function Read_Players() {
 
     const [APIData, setAPIData] = useState([]);
 useEffect(() => {
-    axios.get(`https://localhost:44307/api/Player/get-players`)
+    //nu e metoda
+    axios.get(`https://localhost:44307/api/Stadium/get-stadium`)
         .then((response) => {
             setAPIData(response.data);
         })
@@ -78,15 +80,12 @@ const { items, requestSort, sortConfig } = useSortableData(APIData);
         };
 
     const setData = (data) => {
-    let { id, name, nationality, birth_Date,height,foot,position,value } = data;
-    localStorage.setItem('ID', id);
+    let { stadiumId, name, capacity, surface, address } = data;
+    localStorage.setItem('Stadium ID', stadiumId);
     localStorage.setItem('Name', name);
-    localStorage.setItem('Nationality', nationality);
-    localStorage.setItem('Birth Date', birth_Date)
-    localStorage.setItem('Height', height.toString().substring(0, (height.toString()).length-2));
-    localStorage.setItem('Foot', foot);
-    localStorage.setItem('Position', position);
-    localStorage.setItem('Value', value)
+    localStorage.setItem('Capacity', capacity);
+    localStorage.setItem('Surface', surface);
+    localStorage.setItem('Address', address);
 }
 
     return (
@@ -101,53 +100,36 @@ const { items, requestSort, sortConfig } = useSortableData(APIData);
             >Name</button></Table.HeaderCell>
                         <Table.HeaderCell className='titlu'><button
               type="button"
-              onClick={() => requestSort('nationality')}
-              className={getClassNamesFor('nationality')}
-            >Nationality</button></Table.HeaderCell>
+              onClick={() => requestSort('Capacity')}
+              className={getClassNamesFor('Capacity')}
+            >Capacity</button></Table.HeaderCell>
                         <Table.HeaderCell className='titlu'><button
               type="button"
-              onClick={() => requestSort('birth_Date')}
-              className={getClassNamesFor('birth_Date')}
-            >Birth Date</button></Table.HeaderCell>
+              onClick={() => requestSort('Surface')}
+              className={getClassNamesFor('Surface')}
+            >Surface</button></Table.HeaderCell>
                         <Table.HeaderCell className='titlu'><button
               type="button"
-              onClick={() => requestSort('height')}
-              className={getClassNamesFor('height')}
-            >Height</button></Table.HeaderCell>
-                        <Table.HeaderCell  className='titlu'><button
-              type="button"
-              onClick={() => requestSort('foot')}
-              className={getClassNamesFor('foot')}
-            >Foot</button></Table.HeaderCell>
-                        <Table.HeaderCell className='titlu'><button
-              type="button"
-              onClick={() => requestSort('position')}
-              className={getClassNamesFor('position')}
-            >Position</button></Table.HeaderCell>
-                        <Table.HeaderCell className='titlu'><button
-              type="button"
-              onClick={() => requestSort('value')}
-              className={getClassNamesFor('value')}
-            >Value</button></Table.HeaderCell>
+              onClick={() => requestSort('Address')}
+              className={getClassNamesFor('Address')}
+            >Address</button></Table.HeaderCell>
+                        
                         
 
                     </Table.Row>
                 </Table.Header>
 
                 <Table.Body>
-                {/* {APIData.map((data) => { */}
+                
                 {items.map((data) => {
      return (
        <Table.Row>
           <Table.Cell key={data.name}>{data.name}</Table.Cell>
-          <Table.Cell >{data.nationality}</Table.Cell>
-          <Table.Cell >{data.birth_Date}</Table.Cell>
-          <Table.Cell >{data.height}</Table.Cell>
-          <Table.Cell >{data.foot}</Table.Cell>
-          <Table.Cell >{data.position}</Table.Cell>
-          <Table.Cell >{data.value*1000000}</Table.Cell>
-
-           <Link to='/update_players'>
+          <Table.Cell >{data.capacity}</Table.Cell>
+          <Table.Cell >{data.surface}</Table.Cell>
+          <Table.Cell >{data.address}</Table.Cell>
+          
+           <Link to='/update_stadium'>
           <Table.Cell> 
         <Button onClick={() => setData(data)}>Update</Button>
         </Table.Cell>

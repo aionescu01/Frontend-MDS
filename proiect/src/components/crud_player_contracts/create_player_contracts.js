@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Checkbox, Form } from "semantic-ui-react"
 import axios from "axios";
-
+import './CPC.css';
 export default function Create_Player_Contracts() {
     const [start_date, setstart_date] = useState(new Date('2021-12-16T10:43:46.737Z'));
     const [end_date, setend_date] = useState(new Date('2021-12-16T10:43:46.737Z'));
@@ -10,7 +10,7 @@ export default function Create_Player_Contracts() {
     const [playerId, setplayerId] = useState(0);
 
     const postData = () => {
-        axios.post('https://localhost:44307/api/Contract/add-one-contract', {
+        axios.post('https://localhost:44307/api/Contract/add-players', {
             start_date,
             end_date,
             salary,

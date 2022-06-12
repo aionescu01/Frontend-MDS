@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Checkbox, Form } from "semantic-ui-react"
 import axios from "axios";
-
+import './CSC.css';
 
 
 export default function Create_Staff_Contracts() {
