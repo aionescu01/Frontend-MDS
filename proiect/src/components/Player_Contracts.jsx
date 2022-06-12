@@ -2,11 +2,18 @@ import React from "react";
 import Create_Player_Contracts from './crud_player_contracts/create_player_contracts';
 import Read_Player_Contracts from "./crud_player_contracts/read_player_contracts";
 import Update_Player_Contracts from "./crud_player_contracts/update_player_contracts";
+import Add_player_contracts from "./crud_player_contracts/add_player_contracts";
 import './Players.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 function Player_Contracts() {
   return (
     <div className="main">
+
+<h2 className="main-header">Player Contracts List</h2>
+      <div className="pls">
+         <Add_player_contracts/> 
+      
+    </div>
 
       <h2 className="main-header">Player Contracts List</h2>
       <div className="pls">

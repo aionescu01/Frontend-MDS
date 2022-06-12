@@ -17,7 +17,7 @@
     justify-content: center;
     align-items: center;
 
-    background-color: #6a6e71;
+    background-color: #808589;
     color: whitesmoke;
     flex-direction: column;
   }
@@ -27,6 +27,14 @@
   .pls{
     padding-top: 50px;
     
+  }
+  .pls1{
+    padding-top: 50px;
+    display: flex;
+    
+  }
+  .pls2{
+    padding-left: 30px;
   }
 .scris{
   padding-right: 10px;

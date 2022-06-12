@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Checkbox, Form } from "semantic-ui-react"
 import axios from "axios";
+import './CP.css';
 
 export default function Create_Player_Contracts() {
     const [start_date, setstart_date] = useState(new Date('2021-12-16T10:43:46.737Z'));

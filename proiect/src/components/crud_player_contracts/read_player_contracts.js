@@ -1,11 +1,11 @@
  import React , { useEffect, useState } from 'react';
  import { Table } from 'semantic-ui-react';
  import axios from 'axios';
- import './RP.css';
+ //import './RP.css';
  export default function Read_Player_Contracts(){
      const [APIData, setAPIData] = useState([]);
      useEffect(() => {
-         axios.get('https://localhost:44307/api/Contract').then((response) => {
+         axios.get('https://localhost:44307/api/Contract/get-all-player-contracts').then((response) => {
              setAPIData(response.data);
          })
      }, [])
@@ -23,7 +23,7 @@
                         return(
                             <Table.Row>
                                 <Table.Cell>
-                                    { data.playerId ? data.salary : '' }
+                                    { data.playerId ? data.name : '' }
                                 </Table.Cell>
                             </Table.Row>
                     )})}

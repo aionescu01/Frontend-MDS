@@ -1,27 +1,31 @@
+
 import React , { useEffect,useState }from 'react';
-import { Form,Button } from 'semantic-ui-react'
+import { Form,Button, Input } from 'semantic-ui-react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import './RS.css';
-
+//import './RS.css';
+import { body } from 'express-validator';
 export default function Add_staff() {
 
-const postData = () => {
     const [Link, setlink] = useState('');
-        
-    axios.post(`create staff ${Link}`, {
-        Link
-        
-    })
-}
+
+    const handleSubmit = (e) => {
+        console.log(Link);
+    axios.post(`https://localhost:44307/api/StaffMember/add-staff-by-link`,
+    Link, 
+    {
+        headers: { 'Content-Type': 'application/json', 'charset':'utf-8'}
+    }
+    ).then(response=>{window.location.reload()})
+} 
     return(
-        <Form className="create-form">
-        <Form.Field>
-            <label className='Link'>Link</label>
-            <input className='raspuns' placeholder='Link' />
-        </Form.Field>    
-        <Button onClick={postData(Link)} type = 'submit'>Submit</Button>
+
+        
+        <Form className="create-form" onSubmit={handleSubmit}>
+            <Input onChange={(e) => setlink(e.target.value)} value = {Link}></Input>
+        
+        <Button type = 'submit'>Submit</Button>
     </Form>
     )
 
-    }
+}

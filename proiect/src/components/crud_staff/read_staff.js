@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Table, Button} from 'semantic-ui-react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
-import './RS.css';
+//import './RS.css';
 
 const useSortableData = (items, config = null) => {
     const [sortConfig, setSortConfig] = React.useState(config);

@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import {Button, Checkbox, Form} from "semantic-ui-react"
 import axios from "axios";
-import './CS.css';
+//import './CS.css';
 
 export default function Create_Staff(){
     const [name, setname] = useState('');

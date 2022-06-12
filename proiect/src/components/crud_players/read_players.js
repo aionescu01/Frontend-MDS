@@ -64,7 +64,7 @@ export default function Read_Players() {
 
     const [APIData, setAPIData] = useState([]);
 useEffect(() => {
-    axios.get(`https://localhost:44307/api/Player`)
+    axios.get(`https://localhost:44307/api/Player/get-players`)
         .then((response) => {
             setAPIData(response.data);
         })
@@ -91,8 +91,8 @@ const { items, requestSort, sortConfig } = useSortableData(APIData);
 
     return (
         
-            <Table singleLine className='tabel'>
-                <Table.Header>
+            <Table striped className='tabel'>
+                <Table.Header className='tt1'>
                     <Table.Row>
                         <Table.HeaderCell className='titlu'><button
               type="button"

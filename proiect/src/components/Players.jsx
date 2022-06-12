@@ -10,9 +10,16 @@ function Players() {
       <div className="main">
 
         
-<div className="pls">
-           <Add_players/> 
-        
+<div className="pls1">
+<div className="pls2">
+         <Add_players/>    
+
+            </div>
+            <div className="pls2">
+            
+<Create_Players/>
+      </div>
+         
       </div>
         <h2 className="main-header">Players List</h2>
 
@@ -21,11 +28,11 @@ function Players() {
            <Read_Players/> 
         
       </div>
-      <h2 className="main-header">Add a player</h2> 
+      {/* <h2 className="main-header">Add a player</h2>  */}
       <h3><div id="theDiv"></div></h3>
       <div className="pls">
             
-        <Create_Players/>
+        
       </div>
       <div className="pls">
             

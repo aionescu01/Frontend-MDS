@@ -2,6 +2,8 @@ import React, { useState,useEffect } from 'react';
 import { Button, Checkbox, Form } from 'semantic-ui-react'
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import { Navigate } from 'react-router-dom';
+import './UP.css';
 
 
 export default function Update_Players() {
@@ -27,10 +29,11 @@ export default function Update_Players() {
     const [value, setvalue] = useState(0);
 
     const updateAPIData = () => {
-        // console.log(id,name,nationality,height.toString().substring(0, (height.toString()).length-2))
-        let navigate = useNavigate(); 
-        let path = `/Players`; 
-        navigate(path);
+         //console.log(id,name,nationality,height.toString().substring(0, (height.toString()).length-2))
+        //let navigate = useNavigate(); 
+        //let path = `/Players`; 
+        //navigate(path);
+        //console.log(name)
         axios.put(`https://localhost:44307/api/Player/put-by-id/${id}`, {
             name,
             nationality,
@@ -40,6 +43,13 @@ export default function Update_Players() {
             position,
             value
         })
+        
+    }
+
+    function myFunction(){
+        updateAPIData();
+        window.location = 'http://localhost:3000';
+        
     }
     
 
@@ -64,42 +74,42 @@ export default function Update_Players() {
 
     return (
         
-        <form> 
+        <form className='create-form'> 
         <div>
         {/* <Form.Field>
             <label>id</label>
             <input placeholder='ID' value={id || 0} onChange={(e) => setid(e.target.id)} />
         </Form.Field> */}
-           <Form.Field>
+           <Form.Field  className='ff'>
             <label>name</label>
             <input placeholder={name} defaultValue={name} onChange={(e) => setname(e.target.value)} />
         </Form.Field>
-        <Form.Field>
+        <Form.Field className='ff'>
             <label>nationality</label>
             <input placeholder={nationality} defaultValue={nationality} onChange={(e) => setnationality(e.target.value)} />
         </Form.Field>
-        <Form.Field>
+        <Form.Field className='ff'>
             <label>birth_Date</label>
             <input placeholder={birth_Date} defaultValue={birth_Date} onChange={(e) => setbirth_Date(e.target.value)} />
         </Form.Field>
-        <Form.Field>
+        <Form.Field className='ff'>
             <label>height</label>
             <input placeholder={height} defaultValue={localStorage.getItem('Height')} onChange={(e) => setheight(e.target.value)}/>
         </Form.Field>
-        <Form.Field>
+        <Form.Field className='ff'>
             <label>foot</label>
             <input placeholder={foot} defaultValue={foot} onChange={(e) => setfoot(e.target.value)}/>
         </Form.Field>
-        <Form.Field>
+        <Form.Field className='ff'>
             <label>position</label>
             <input placeholder={position} defaultValue={position}  onChange={(e) => setposition(e.target.value)}/>
         </Form.Field>
-        <Form.Field>
+        <Form.Field className='ff'>
             <label>value</label>
             <input placeholder={value} defaultValue={localStorage.getItem('Value')} onChange={(e) => setvalue(e.target.value)}/>
-        </Form.Field>
+        </Form.Field >
         </div>
-        <Button type='submit' onClick={updateAPIData}>Update</Button>
+        <Button className = "b1" type='submit' onClick={myFunction}>Update</Button>
         </form>
     )
 }

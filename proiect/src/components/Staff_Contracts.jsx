@@ -2,6 +2,7 @@ import React from "react";
 import Create_Staff_Contracts from "./crud_staff_contracts/create_staff_contracts";
 import Read_Staff_Contracts from "./crud_staff_contracts/read_staff_contracts";
 import Update_Staff_Contracts from "./crud_staff_contracts/update_staff_contracts";
+import Add_staff_contracts from "./crud_staff_contracts/add_staff_contracts";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import './Players.css';
@@ -9,8 +10,16 @@ import './Players.css';
 function Staff_Contracts() {
   return (
     <div className="main">
+      
+      <h2 className="main-header">Staff Contracts List</h2>
+      
+      <div className="pls">
+         <Add_staff_contracts/> 
+      
+    </div>
 
       <h2 className="main-header">Staff Contracts List</h2>
+      
       <div className="pls">
          <Read_Staff_Contracts/> 
       

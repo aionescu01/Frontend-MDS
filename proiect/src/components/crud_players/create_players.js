@@ -38,7 +38,8 @@ export default function Create_Players() {
 
     return (
     
-    <Form className="create-form">
+    <Form className="create-form1">
+        <h2 className="bt2">Add a player</h2>
         <Form.Field>
             <label className='scris'>name</label>
             <input className='raspuns' placeholder='Name' onChange={(e) => setname(e.target.value)} />
@@ -67,7 +68,7 @@ export default function Create_Players() {
             <label className='scris'>value</label>
             <input className='raspuns' placeholder='Value' onChange={(e) => setvalue(e.target.value)}/>
         </Form.Field>        
-        <Button onClick={myFunction} type = 'submit'>Submit</Button>
+        <Button className='bt2' onClick={myFunction} type = 'submit'>Submit</Button>
     </Form>
 )
 } 
