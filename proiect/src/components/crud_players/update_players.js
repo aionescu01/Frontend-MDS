@@ -28,12 +28,13 @@ export default function Update_Players() {
     const [position, setposition] = useState('');
     const [value, setvalue] = useState(0);
 
-    const updateAPIData = () => {
+    const updateAPIData = (e) => {
          //console.log(id,name,nationality,height.toString().substring(0, (height.toString()).length-2))
         //let navigate = useNavigate(); 
         //let path = `/Players`; 
         //navigate(path);
         //console.log(name)
+        e.preventDefault();
         axios.put(`https://localhost:44307/api/Player/put-by-id/${id}`, {
             name,
             nationality,
@@ -42,14 +43,9 @@ export default function Update_Players() {
             foot,
             position,
             value
-        })
-        
-    }
-
-    function myFunction(){
-        updateAPIData();
-        window.location = 'http://localhost:3000';
-        
+            
+        },{headers: { 'Content-Type': 'application/json', 'charset':'utf-8', 'Authorization': `Bearer ${localStorage.getItem("jwt").replaceAll("\"","")}`}})
+        .then(response =>(window.location.assign("/Players")));  
     }
     
 
@@ -109,7 +105,7 @@ export default function Update_Players() {
             <input placeholder={value} defaultValue={localStorage.getItem('Value')} onChange={(e) => setvalue(e.target.value)}/>
         </Form.Field >
         </div>
-        <Button className = "b1" type='submit' onClick={myFunction}>Update</Button>
+        <Button className = "b1" type='submit' onClick={e=>(updateAPIData(e))}>Update</Button>
         </form>
     )
 }

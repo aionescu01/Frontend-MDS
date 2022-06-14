@@ -44,14 +44,14 @@ const useSortableData = (items, config = null) => {
 export default function Read_Players() {
 
     const onDelete = (id) => {
-        axios.delete(`https://localhost:44307/api/Player/delete-by-id/${id}`)
+        axios.delete(`https://localhost:44307/api/Player/delete-by-id/${id}`,{headers: { 'Content-Type': 'application/json', 'charset':'utf-8', 'Authorization': `Bearer ${localStorage.getItem("jwt").replaceAll("\"","")}`}})
     }
 
     const getData = () => {
         axios.get(`https://localhost:44307/api/Player`)
             .then((getData) => {
                  setAPIData(getData.data);
-             })
+             },{headers: { 'Content-Type': 'application/json', 'charset':'utf-8', 'Authorization': `Bearer ${localStorage.getItem("jwt").replaceAll("\"","")}`}})
     }
 
         const functie = (id) => {
@@ -92,8 +92,14 @@ const { items, requestSort, sortConfig } = useSortableData(APIData);
     return (
         
             <Table striped className='tabel'>
+              
                 <Table.Header className='tt1'>
                     <Table.Row>
+                    <Table.HeaderCell className='titlu'><button
+              type="button"
+              onClick={() => requestSort('id')}
+              className={getClassNamesFor('id')}
+            >ID</button></Table.HeaderCell>
                         <Table.HeaderCell className='titlu'><button
               type="button"
               onClick={() => requestSort('name')}
@@ -139,7 +145,8 @@ const { items, requestSort, sortConfig } = useSortableData(APIData);
                 {items.map((data) => {
      return (
        <Table.Row>
-          <Table.Cell key={data.name}>{data.name}</Table.Cell>
+          <Table.Cell key={data.id}>{data.id}</Table.Cell>
+          <Table.Cell >{data.name}</Table.Cell>
           <Table.Cell >{data.nationality}</Table.Cell>
           <Table.Cell >{data.birth_Date}</Table.Cell>
           <Table.Cell >{data.height}</Table.Cell>

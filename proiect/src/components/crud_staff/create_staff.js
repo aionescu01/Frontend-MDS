@@ -12,13 +12,13 @@ export default function Create_Staff(){
 
 
     const postData = () => {
-        axios.post('/api/StaffMember/Add one staff member', {
+        axios.post('https://localhost:44307/api/StaffMember/add-staff-member', {
             name,
             role,
             birth_date,
             email,
             phone_number
-        })
+        },{headers: { 'Content-Type': 'application/json', 'charset':'utf-8', 'Authorization': `Bearer ${localStorage.getItem("jwt").replaceAll("\"","")}`}})
     }
 
     const fun = () => { 
@@ -30,7 +30,8 @@ export default function Create_Staff(){
     }
 
     return(
-        <Form className="create-form">
+        <Form className="create-form1">
+            <h2 className="bt2">Add Staff</h2>
             <Form.Field>
                 <label>name</label>
                 <input placeholder="Name" onChange={(e) => setname( e.target.value )} />
@@ -51,7 +52,7 @@ export default function Create_Staff(){
                 <label>phone_number</label>
                 <input placeholder="Phone_Number" onChange={(e) => setphone_number( e.target.value )}/>
             </Form.Field>
-            <Button onClick={myFunction} type = 'submit'>Submit</Button>
+            <Button className="bt2" onClick={myFunction} type = 'submit'>Submit</Button>
         </Form>
     )
 }

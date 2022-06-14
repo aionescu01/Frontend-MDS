@@ -22,17 +22,16 @@ export default function Update_Staff() {
     const [email, setemail] = useState('');
     const [phone_number, setphone_number] = useState('');
 
-    const updateAPIData = () => {
-        let navigate = useNavigate(); 
-        let path = `staff`; 
-        navigate(path);
+    const updateAPIData = (e) => {
+        e.preventDefault();
         axios.put(`https://localhost:44307/api/StaffMember/put-by-id/${id}`, {
             name,
             role,
             birth_date,
             email,
             phone_number
-        })
+        },{headers: { 'Content-Type': 'application/json', 'charset':'utf-8', 'Authorization': `Bearer ${localStorage.getItem("jwt").replaceAll("\"","")}`}})
+        .then(response =>(window.location.assign("/Staff")));
     }
     
 
@@ -48,30 +47,30 @@ export default function Update_Staff() {
 
     return (
         
-        <form> 
+        <form className='create-form'> 
         <div>
-           <Form.Field>
+           <Form.Field className='ff' >
             <label>name</label>
             <input placeholder={name} defaultValue={name} onChange={(e) => setname(e.target.value)} />
         </Form.Field>
-        <Form.Field>
+        <Form.Field className='ff'>
             <label>role</label>
             <input placeholder={role} defaultValue={role} onChange={(e) => setrole(e.target.value)} />
         </Form.Field>
-        <Form.Field>
+        <Form.Field className='ff'>
             <label>birth_date</label>
             <input placeholder={birth_date} defaultValue={birth_date} onChange={(e) => setbirth_date(e.target.value)} />
         </Form.Field>
-        <Form.Field>
+        <Form.Field className='ff'> 
             <label>email</label>
             <input placeholder={email} defaultValue={email} onChange={(e) => setemail(e.target.value)}/>
         </Form.Field>
-        <Form.Field>
+        <Form.Field className='ff'>
             <label>phone_number</label>
             <input placeholder={phone_number} defaultValue={phone_number}  onChange={(e) => setphone_number(e.target.value)}/>
         </Form.Field>
         </div>
-        <Button type='submit' onClick={updateAPIData}>Update</Button>
+        <Button className='bt2' type='submit' onClick={e=>(updateAPIData(e))}>Update</Button>
         </form>
     )
 }

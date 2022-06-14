@@ -22,7 +22,8 @@ export default function Create_Players() {
             foot,
             position,
             value
-        })
+            
+        },{headers: { 'Content-Type': 'application/json', 'charset':'utf-8', 'Authorization': `Bearer ${localStorage.getItem("jwt").replaceAll("\"","")}`}})
     }
 
     const fun = () => {
@@ -31,7 +32,7 @@ export default function Create_Players() {
     function myFunction(){
         postData();
 
-        window.location.href = 'http://localhost:3000/Players'
+       window.location.href = 'http://localhost:3000/Players'
     }
 
 

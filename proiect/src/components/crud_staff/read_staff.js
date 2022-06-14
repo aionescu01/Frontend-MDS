@@ -40,7 +40,7 @@ const useSortableData = (items, config = null) => {
 
   export default function Read_Staff(){
       const onDelete = (id) => {
-          axios.delete(`https://localhost:44307/api/StaffMember/delete-by-id/{id}${id}`)
+          axios.delete(`https://localhost:44307/api/StaffMember/delete-by-id/{id}${id}`,{headers: { 'Content-Type': 'application/json', 'charset':'utf-8', 'Authorization': `Bearer ${localStorage.getItem("jwt").replaceAll("\"","")}`}})
       }
 
       const getData = () => {
@@ -51,7 +51,7 @@ const useSortableData = (items, config = null) => {
 
       const functie = (id) =>{
           onDelete(id);
-          window.location.href = 'http://localhost:3000/StaffMember';
+          window.location.href = 'http://localhost:3000/Staff';
       }
 
       const [APIData, setAPIData] = useState([]);
@@ -70,18 +70,18 @@ const useSortableData = (items, config = null) => {
       };
 
       const setData = (data) => {
-          let {id, name, role, birth_date, email, phone_number} = data;
+          let {id, name, role, birth_Date, email, phone_Number} = data;
           localStorage.setItem('ID', id);
           localStorage.setItem('Name', name);
           localStorage.setItem('Role', role);
-          localStorage.setItem('Birth Date', birth_date);
+          localStorage.setItem('Birth Date', birth_Date);
           localStorage.setItem('Email', email);
-          localStorage.setItem('Phone Number', phone_number);
+          localStorage.setItem('Phone Number', phone_Number);
       }
 
       return(
           <Table singleLine className='tabel'>
-              <Table.Header>
+              <Table.Header className="tt1">
                   <Table.Row>
                       <Table.HeaderCell className='titlu'>
                           <button type="button" 
@@ -99,8 +99,8 @@ const useSortableData = (items, config = null) => {
                       </Table.HeaderCell>
                       <Table.HeaderCell className='titlu'>
                           <button type="button" 
-                          onClick={() => requestSort('birth_date')}
-                          className={getClassNamesFor('birth_date')}>
+                          onClick={() => requestSort('birth_Date')}
+                          className={getClassNamesFor('birth_Date')}>
                             Birth Date
                           </button>
                       </Table.HeaderCell>
@@ -113,8 +113,8 @@ const useSortableData = (items, config = null) => {
                       </Table.HeaderCell>
                       <Table.HeaderCell className='titlu'>
                           <button type="button" 
-                          onClick={() => requestSort('phone_number')}
-                          className={getClassNamesFor('phone_number')}>
+                          onClick={() => requestSort('phone_Number')}
+                          className={getClassNamesFor('phone_Number')}>
                             Phone Number
                           </button>
                       </Table.HeaderCell>
@@ -127,11 +127,11 @@ const useSortableData = (items, config = null) => {
                           <Table.Row>
                               <Table.Cell key={data.name}>{data.name}</Table.Cell>
                               <Table.Cell>{data.role}</Table.Cell>
-                              <Table.Cell>{data.birth_date}</Table.Cell>
+                              <Table.Cell>{data.birth_Date}</Table.Cell>
                               <Table.Cell>{data.email}</Table.Cell>
-                              <Table.Cell>{data.phone_number}</Table.Cell>
+                              <Table.Cell>{data.phone_Number}</Table.Cell>
 
-                              <Link to='update staff'>
+                              <Link to='/update_staff'>
                                   <Table.Cell>
                                       <Button onClick = {() => setData(data)}>Update</Button>
                                   </Table.Cell>

@@ -14,17 +14,18 @@ export default function Add_staff() {
     axios.post(`https://localhost:44307/api/StaffMember/add-staff-by-link`,
     Link, 
     {
-        headers: { 'Content-Type': 'application/json', 'charset':'utf-8'}
+        headers: { 'Content-Type': 'application/json', 'charset':'utf-8', 'Authorization': `Bearer ${localStorage.getItem("jwt").replaceAll("\"","")}`}
     }
     ).then(response=>{window.location.reload()})
 } 
     return(
 
         
-        <Form className="create-form" onSubmit={handleSubmit}>
-            <Input onChange={(e) => setlink(e.target.value)} value = {Link}></Input>
+        <Form className="create-form1" onSubmit={handleSubmit}>
+             <h2 className='bt2'>Link</h2>
+            <Input className='inp' onChange={(e) => setlink(e.target.value)} value = {Link}></Input>
         
-        <Button type = 'submit'>Submit</Button>
+        <Button className='bt2' type = 'submit'>Submit</Button>
     </Form>
     )
 

@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Button, Checkbox, Form } from "semantic-ui-react"
 import axios from "axios";
-import './CP.css';
-
+//import './CPC.css';
 export default function Create_Player_Contracts() {
     const [start_date, setstart_date] = useState(new Date('2021-12-16T10:43:46.737Z'));
     const [end_date, setend_date] = useState(new Date('2021-12-16T10:43:46.737Z'));
     const [salary, setsalary] = useState(0);
     const [agent, setagent] = useState('');
     const [playerId, setplayerId] = useState(0);
+    const [staffMemberId, setstaffMemberId] = useState(0);
 
     const postData = () => {
         axios.post('https://localhost:44307/api/Contract/add-one-contract', {
@@ -16,8 +16,10 @@ export default function Create_Player_Contracts() {
             end_date,
             salary,
             agent,
-            playerId
-        })
+            playerId,
+            staffMemberId
+        },{headers: { 'Content-Type': 'application/json', 'charset':'utf-8', 'Authorization': `Bearer ${localStorage.getItem("jwt").replaceAll("\"","")}`}})
+        .then(response=>(window.location.reload()));
     }
 
     const fun = () => {
@@ -26,11 +28,12 @@ export default function Create_Player_Contracts() {
     function myFunction(){
         postData();
         //fun();
-        window.location.href = 'http://localhost:3000/Player_Contracts';
+        //window.location.href = 'http://localhost:3000/Player_Contracts';
     }
 
     return(
-        <Form className="create-form">
+        <Form className="create-form1">
+            <h2 className="bt2">Add a player contract</h2>
         <Form.Field>
             <label>start_date</label>
             <input placeholder='2021-12-12' onChange={(e) => setstart_date(e.target.value)} />
@@ -51,7 +54,7 @@ export default function Create_Player_Contracts() {
             <label>player id</label>
             <input placeholder='PlayerId' onChange={(e) => setplayerId(e.target.value)}/>
         </Form.Field>
-        <Button onClick={myFunction} type = 'submit'>Submit</Button>
+        <Button className='bt2' onClick={myFunction} type = 'submit'>Submit</Button>
     </Form>
     )
 }

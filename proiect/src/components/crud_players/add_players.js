@@ -14,8 +14,7 @@ export default function Add_players() {
     axios.post(`https://localhost:44307/api/Player/add-players-by-link`,
     Link, 
     {
-        headers: { 'Content-Type': 'application/json', 'charset':'utf-8'}
-    }
+        headers: { 'Content-Type': 'application/json', 'charset':'utf-8', 'Authorization': `Bearer ${localStorage.getItem("jwt").replaceAll("\"","")}`}    }
     ).then(response=>{window.location.reload()})
 } 
     return(
